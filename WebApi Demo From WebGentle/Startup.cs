@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApi_Demo_From_WebGentle.Repository;
 
 namespace WebApi_Demo_From_WebGentle
 {
@@ -33,6 +34,9 @@ namespace WebApi_Demo_From_WebGentle
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApi_Demo_From_WebGentle", Version = "v1" });
             });
+
+            services.AddTransient<IProductRepository, ProductRepository>(); //dependency injection
+            services.AddTransient<IProductRepository, TestRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
